@@ -1,0 +1,80 @@
+Main: - Enchants
+Config: - be / ki kapcsolás
+
+- ritkaság
+- színkód támogatás
+- Többi enchant támogatása
+- Saját enchant gui ha enchantolni akar a játékos
+
+Gui: enchantkönyvet kapni
+Parancs: Lehívni a könyvet
+Saját nbt/id;
+Működése: ritkaság alapján le lehet hívni majd a guiból
+gyakori: - 20 xp szint, ritka: - 40 xp szint, legendás: -75 xp szint
+
+#===^=== Enchantok - gyakori ===^===#
+
+~~~~~ Fagyasztás 🗡
+1-2 szint blokkoja a mobok mozgását (2s & 5s ig)
+~~~~~ Vakítás 🗡
+1-5 szint vakságot ad a mobokra kevés %-al
+(+3% / szint 5mp-re)
+~~~~~ Visszaszúrás 🪖
+1 szint ha sebződsz akkor még + fogsz sebződni
+~~~~~ Wither 🗡🪓
+Szint 5-10% százalékkal withert rak az ellenséges játékosra 5 mp ig
+~~~~~ Pénzéhes (eszközök)
+7% kap + ba a játékos 1 emeraldot (ha kiüt 1 blockot az adott eszközzel)
+~~~~~
+
+#===^=== Enchantok - ritka ===^===#
+
+~~~~~ Koptatás 🪓 🗡
+1-4 szint koptassa a másik játékosnak a pámcélzatát (Szint +5% / szint)
+~~~~~ Gyógyítás 🗡
+1-3 szint ütésre teljesen feltölti a játékosnak az életét (%<!!!>)
+~~~~~ Robbanékonyság I ⛏️
+3x3 bányász, de 9 kopás/ használat
+~~~~~ Kritikus ütés 🗡
+5% -ékkal van esély hogy a fegyver 50% többet damageljen
+~~~~~ Tűzpáncél 🪖
+5%+ / páncéldarab - 15 mp meggyújtja a támadó játékost.
+~~~~~ Öngyógyítás 🪖 (mellvért)
+7% / ütés az életerő 50% felviszi a játékos életeréjét
+~~~~~ Nether bányász (csákány)
+ha kvarcot kiüt a játékos akkor valami ércet kap a játékos (szén, vas, arany, gyémánt, smaragd)
+Lore kötelező
+
+
+#===^=== Enchantok - legendás ===^===#
+
+~~~~~ Örökkévalóság ♾️
+Amin rajta van azt a játékos nem tudja elveszíteni
+~~~~~ Vérszívás 🪓 🗡
+1-3 szint A másik játékostól el lopja az életét (limittel: 1hp-2hp-3hp)
+~~~~~ Robbanékonyság II ⛏️
+5x5 bányász, de 25 kopás/ használat
+~~~~~ Fűrész 🪓
+ha shiftelve ütsz egy fát akkor kiüti az összeset  (shiftelés közben)
+~~~~~ Fókusz 🗡
+Jobb kattintással lejetővé teszi hogy a játékos 50% gyorsabban üssön
+~~~~~ Halálos csere 🗡🪓
+Ha a játékos 1 hpn van akkor 25% esélyel instant megöli az ellenséges játékost
+~~~~~ Utolsó esély (páncél)
+Ha a játékos 1 szíven van Regenerációt: (2. 20mp), Gyorsaságot: (1. 20mp),  Ellenálás (1 5mp)
+~~~~~ Orvos (mellvért)
+Ha a 7 blockos körzetében vannak játékos(ok) akkor regenerációt ad a többi játékosnak amíg benne vannak a körzetében
+~~~~~ The End (cipő)
+Ha az endben van a játékos és eléri a Y: -5 blockot akkor a legközelebbi block tetejére teleportálódik
+
+
+#===^=== Limitek ===^===#
+robbanás I =/= robbanás II
+Halálos csere =/= Utolsó esély
+Wither =/= vakítás
+Öngyógyítás =/= orvos
+Halálos csere =/= Kritikus ütés
+Koptatás =/= Kritikus ütés
+
+
+

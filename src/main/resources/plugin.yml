@@ -1,0 +1,19 @@
+name: AllEnchantments
+version: 'V1-R1.0'
+main: me.gerab.allEnchantments.AllEnchantments
+api-version: '1.21'
+prefix: CustomEnchantments
+load: STARTUP
+authors: [ gerab ]
+description: Hozzáad új fajta enchantokat
+website: https://github.com/gerabX/CustomEnchantments
+commands:
+  ce:
+    description: Custom Enchant parancs
+    usage: /ce give <enchant_nev> vagy /ce rl
+
+permissions:
+  allenchants.give:
+    description: Enchant könyv lekérésének engedélye
+    default: op
+
