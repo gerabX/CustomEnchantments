@@ -1,5 +1,6 @@
 package me.gerab.allEnchantments;
 
+import me.gerab.allEnchantments.Guis.GUI;
 import me.gerab.allEnchantments.SettingsForCE.CustomEnchantmentType;
 import org.bukkit.ChatColor;
 import org.bukkit.command.*;
@@ -35,6 +36,17 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
             sender.sendMessage("§aPlugin újratöltve!");
             return true;
         }
+
+        if (args[0].equalsIgnoreCase("gui")) {
+            if (!(sender instanceof Player player)) {
+                sender.sendMessage("§cCsak játékosok használhatják ezt a parancsot.");
+                return true;
+            }
+            new GUI().openMainGUI(player);
+            return true;
+        }
+
+
 
         if (args[0].equalsIgnoreCase("give")) {
             if (!(sender instanceof Player player)) {

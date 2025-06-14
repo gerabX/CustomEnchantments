@@ -10,5 +10,4 @@ public interface CustomEnchantment {
     Commonness getRarity();
     List<Material> getApplicableItems();
     ItemStack createBook(int level);
-
 }

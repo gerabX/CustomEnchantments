@@ -1,7 +1,8 @@
 package me.gerab.allEnchantments.SettingsForCE;
 
-import me.gerab.allEnchantments.Rarity.Common.FreezeEnchantment;
-import me.gerab.allEnchantments.Rarity.Legendary.EternityEnchantment;
+import me.gerab.allEnchantments.Rarity.Common.*;
+import me.gerab.allEnchantments.Rarity.Legendary.EternityEnchant;
+import me.gerab.allEnchantments.Rarity.Rare.ArmorBreakerEnchant;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -16,7 +17,22 @@ public enum CustomEnchantmentType {
             new FreezeEnchantment(), Commonness.COMMON, EnchantTargets.SWORDS, true // <- helyesen példányosítva // <- helyes enum használat  // <- listát közvetlenül használod// <- pl. hogy craftolható-e, ha ez boolean flag
     ),
     ETERNITY(
-            new EternityEnchantment(), Commonness.LEGENDARY, EnchantTargets.EnchantableItems, true
+            new EternityEnchant(), Commonness.LEGENDARY, EnchantTargets.EnchantableItems, true
+    ),
+    BLINDNESS(
+            new BlindnessEnchant(), Commonness.COMMON, EnchantTargets.SWORDS, true
+    ),
+    MONEYGRABBER(
+            new MoneyGrabberEnchant(), Commonness.COMMON, EnchantTargets.Tools, true
+    ),
+    WITHER(
+            new WitherEnchant(), Commonness.COMMON, EnchantTargets.Weapons, true
+    ),
+    SPIKEHELMET(
+            new SpikeHelmetEnchant(), Commonness.COMMON, EnchantTargets.Helmets, true
+    ),
+    ARMORBREAKER(
+            new ArmorBreakerEnchant(), Commonness.RARE, EnchantTargets.Weapons, true
     );
 
 

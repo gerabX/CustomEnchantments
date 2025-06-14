@@ -75,7 +75,13 @@ public class EnchantTargets {
             Material.IRON_AXE,
             Material.GOLDEN_AXE,
             Material.DIAMOND_AXE,
-            Material.NETHERITE_AXE
+            Material.NETHERITE_AXE,
+            Material.WOODEN_HOE,
+            Material.STONE_HOE,
+            Material.IRON_HOE,
+            Material.GOLDEN_HOE,
+            Material.DIAMOND_HOE,
+            Material.NETHERITE_HOE
     );
 
     public static final List<Material> Helmets = Arrays.asList(
@@ -183,7 +189,27 @@ public class EnchantTargets {
             Material.NETHERITE_HELMET,
             Material.NETHERITE_CHESTPLATE,
             Material.NETHERITE_LEGGINGS,
-            Material.NETHERITE_BOOTS
+            Material.NETHERITE_BOOTS,
+            Material.ELYTRA,
+            Material.WOODEN_PICKAXE,
+            Material.STONE_PICKAXE,
+            Material.IRON_PICKAXE,
+            Material.GOLDEN_PICKAXE,
+            Material.DIAMOND_PICKAXE,
+            Material.NETHERITE_PICKAXE,
+            Material.WOODEN_SHOVEL,
+            Material.STONE_SHOVEL,
+            Material.IRON_SHOVEL,
+            Material.GOLDEN_SHOVEL,
+            Material.DIAMOND_SHOVEL,
+            Material.NETHERITE_SHOVEL,
+            Material.WOODEN_HOE,
+            Material.STONE_HOE,
+            Material.IRON_HOE,
+            Material.GOLDEN_HOE,
+            Material.DIAMOND_HOE,
+            Material.NETHERITE_HOE
+
     );
 }
 
