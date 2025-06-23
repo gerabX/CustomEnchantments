@@ -6,7 +6,7 @@
 
     <groupId>hu.gerab</groupId>
     <artifactId>enchantments</artifactId>
-    <version>V1-#R2</version>
+    <version>V1.0R</version>
     <packaging>jar</packaging>
 
     <name>enchantments</name>

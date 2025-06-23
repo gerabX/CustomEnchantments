@@ -35,9 +35,9 @@ public class FreezeEnchantment implements CustomEnchantment {
             meta.setDisplayName(getName() + " " + level);
             List<String> lore = new ArrayList<>();
             if (level == 1) {
-                lore.add("§7Megfagyasztja az összes mobot §c2 másodpercre§7.");
+                lore.add("§7Megfagyasztja az összes mobot §c2 másodpercre§7. (10% eséllyel)");
             } else if (level == 2) {
-                lore.add("§7Megfagyasztja az összes mobot §c5 másodpercre§7.");
+                lore.add("§7Megfagyasztja az összes mobot §c5 másodpercre§7. (10% eséllyel)");
             }
             meta.setLore(lore);
             book.setItemMeta(meta);

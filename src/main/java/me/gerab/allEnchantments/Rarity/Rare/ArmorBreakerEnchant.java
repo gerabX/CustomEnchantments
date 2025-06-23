@@ -39,13 +39,13 @@ public class ArmorBreakerEnchant implements CustomEnchantment {
                     lore.add("§7Képes a páncélzatnak az életerejét §c5%-al §7csökkenteni. (5% esély)");
                     break;
                 case 2:
-                    lore.add("§7Képes a páncélzatnak az életerejét §c5%-al §7csökkenteni. (7% esély)");
-                    break;
-                case 3:
                     lore.add("§7Képes a páncélzatnak az életerejét §c5%-al §7csökkenteni. (10% esély)");
                     break;
+                case 3:
+                    lore.add("§7Képes a páncélzatnak az életerejét §c5%-al §7csökkenteni. (15% esély)");
+                    break;
                 case 4:
-                    lore.add("§7Képes a páncélzatnak az életerejét §c5%-al §7csökkenteni. (12% esély)");
+                    lore.add("§7Képes a páncélzatnak az életerejét §c5%-al §7csökkenteni. (20% esély)");
                     break;
                 default:
                     lore.add("§7Ismeretlen szint: " + level);

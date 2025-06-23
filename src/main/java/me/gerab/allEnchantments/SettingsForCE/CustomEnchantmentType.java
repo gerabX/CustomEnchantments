@@ -64,13 +64,7 @@ public enum CustomEnchantmentType {
         return applicableItems;
     }
 
-    public CustomEnchantment getInstance() {
-        return enchantment;
-    }
 
-    public boolean isCraftable() {
-        return craftable;
-    }
 
     public static CustomEnchantmentType getByDisplayName(String input) {
         String normalizedInput = normalize(input);

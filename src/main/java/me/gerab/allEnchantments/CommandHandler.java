@@ -82,6 +82,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         if (args.length == 1) {
             suggestions.add("give");
             suggestions.add("rl");
+            suggestions.add("gui");
             return suggestions.stream()
                     .filter(s -> s.startsWith(args[0].toLowerCase()))
                     .collect(Collectors.toList());
