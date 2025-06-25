@@ -54,7 +54,7 @@ public class EnchantListGUI implements Listener {
                 meta.setDisplayName("§b📘 " + enchant.getName());
                 meta.setLore(List.of(
                         ChatColor.GRAY + "Ritkaság: §e" + enchant.getRarity().name(),
-                        ChatColor.GRAY + "Típus: §f" + String.join(", ", (CharSequence) enchant.getApplicableItems())
+                        ChatColor.GRAY + "Típus: §f" + enchant.getApplicableItems().stream().map(Enum::name).collect(Collectors.joining(", "))
                 ));
                 item.setItemMeta(meta);
             }
