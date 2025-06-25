@@ -19,55 +19,86 @@ import java.util.stream.Collectors;
 public class EnchantListGUI implements Listener {
 
     private final String GUI_TITLE = ChatColor.translateAlternateColorCodes('&', "&b&lElérhető Enchantok");
+    private final int ITEMS_PER_PAGE = 28;
+    private final Map<UUID, Integer> playerPages = new HashMap<>();
 
     public void open(Player player) {
+        openPage(player, 0);
+    }
+
+    private void openPage(Player player, int page) {
         Inventory gui = Bukkit.createInventory(null, 54, GUI_TITLE);
 
-        // Dekorációs keret
+        // Dekoráció
         ItemStack glass = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
         ItemMeta glassMeta = glass.getItemMeta();
         if (glassMeta != null) {
             glassMeta.setDisplayName(" ");
             glass.setItemMeta(glassMeta);
         }
-        for (int i = 0; i < 54; i++) {
-            gui.setItem(i, glass);
-        }
+        for (int i = 0; i < 54; i++) gui.setItem(i, glass);
 
-        // Enchant csoportok szerint
-        Map<Commonness, List<CustomEnchantmentType>> grouped = Arrays.stream(CustomEnchantmentType.values())
-                .collect(Collectors.groupingBy(CustomEnchantmentType::getRarity));
+        // Enchantok
+        List<CustomEnchantmentType> allEnchantments = Arrays.stream(CustomEnchantmentType.values())
+                .sorted(Comparator.comparing(e -> e.getRarity().ordinal()))
+                .collect(Collectors.toList());
 
-        int slot = 10;
-        for (Commonness rarity : Commonness.values()) {
-            List<CustomEnchantmentType> enchantments = grouped.getOrDefault(rarity, Collections.emptyList());
-            for (CustomEnchantmentType enchant : enchantments) {
-                ItemStack item = new ItemStack(Material.ENCHANTED_BOOK);
-                ItemMeta meta = item.getItemMeta();
-                if (meta != null) {
-                    meta.setDisplayName(enchant.getName());
-                    meta.setLore(List.of(
-                            ChatColor.GRAY + "Típus: " + rarity.name(),
-                            ChatColor.GRAY + "Használható: " + enchant.getApplicableItems().size() + " itemen"
-                    ));
-                    item.setItemMeta(meta);
-                }
-                gui.setItem(slot, item);
-                slot++;
+        int startIndex = page * ITEMS_PER_PAGE;
+        int endIndex = Math.min(startIndex + ITEMS_PER_PAGE, allEnchantments.size());
 
-                if ((slot + 1) % 9 == 0) slot += 2; // kihagyás keret miatt
-                if (slot >= 53) break;
+        for (int i = startIndex, slot = 10; i < endIndex && slot < 44; i++) {
+            CustomEnchantmentType enchant = allEnchantments.get(i);
+            ItemStack item = new ItemStack(Material.ENCHANTED_BOOK);
+            ItemMeta meta = item.getItemMeta();
+            if (meta != null) {
+                meta.setDisplayName("§b📘 " + enchant.getName());
+                meta.setLore(List.of(
+                        ChatColor.GRAY + "Ritkaság: §e" + enchant.getRarity().name(),
+                        ChatColor.GRAY + "Típus: §f" + String.join(", ", (CharSequence) enchant.getApplicableItems())
+                ));
+                item.setItemMeta(meta);
             }
+            gui.setItem(slot, item);
+            slot++;
+            if ((slot + 1) % 9 == 0) slot += 2; // Ugrás a következő sorba a szegély miatt
         }
 
+        // Lapozó gombok
+        if (page > 0) gui.setItem(45, createButton(Material.ARROW, "§a⬅ Előző oldal"));
+        if (endIndex < allEnchantments.size()) gui.setItem(53, createButton(Material.ARROW, "§aKövetkező oldal ➡"));
+
+        playerPages.put(player.getUniqueId(), page);
         player.openInventory(gui);
+    }
+
+    private ItemStack createButton(Material material, String name) {
+        ItemStack item = new ItemStack(material);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+            item.setItemMeta(meta);
+        }
+        return item;
     }
 
     @EventHandler
     public void onClick(InventoryClickEvent event) {
-        if (!(event.getWhoClicked() instanceof Player)) return;
+        if (!(event.getWhoClicked() instanceof Player player)) return;
         if (!event.getView().getTitle().equals(GUI_TITLE)) return;
-        event.setCancelled(true); // ne lehessen kivenni semmit
+        event.setCancelled(true);
+
+        ItemStack clicked = event.getCurrentItem();
+        if (clicked == null || !clicked.hasItemMeta()) return;
+        String displayName = ChatColor.stripColor(clicked.getItemMeta().getDisplayName());
+
+        int currentPage = playerPages.getOrDefault(player.getUniqueId(), 0);
+
+        if (displayName.equalsIgnoreCase("Előző oldal")) {
+            openPage(player, currentPage - 1);
+        } else if (displayName.equalsIgnoreCase("Következő oldal")) {
+            openPage(player, currentPage + 1);
+        }
     }
 }
+
 

@@ -1,5 +1,6 @@
 package me.gerab.allEnchantments;
 
+import me.gerab.allEnchantments.Guis.EnchantListGUI;
 import me.gerab.allEnchantments.Guis.GUI;
 import me.gerab.allEnchantments.Listeners.Enchantment.Common.*;
 import me.gerab.allEnchantments.Listeners.Enchantment.Legendary.EternityListener;
@@ -24,6 +25,7 @@ public final class AllEnchantments extends JavaPlugin {
     public void registerEvents() {
         getServer().getPluginManager().registerEvents(new EnchantApplyListener(), this);
         getServer().getPluginManager().registerEvents(new GUI(), this);
+        getServer().getPluginManager().registerEvents(new EnchantListGUI(), this);
 
         getServer().getPluginManager().registerEvents(new EternityListener(), this);
         getServer().getPluginManager().registerEvents(new FreezeListener(this), this);
